@@ -39,6 +39,7 @@ def vending_machine_simulation(user_balance):
             price = f"${item['price']}"
             print(f"│{code.center(7)}│{name.center(17)}│{price.center(7)}│")
         print('└───────┴─────────────────┴───────┘')
+        print()
 
     def select_item(category):
         while True:
@@ -52,16 +53,21 @@ def vending_machine_simulation(user_balance):
 
     def process_payment(selected_item, current_total):
         item_price = float(selected_item['price'])
-        print('\n────────────────────────────────────────────────────────────────────')
-        print(f"                 🎀 Enjoy your {selected_item['name']}!🎀 ")
+        print('\n───────────────────────────────────────────────────────────────────────────')
+        print(f"                  🎀 Enjoy your {selected_item['name']}!🎀 ")
+        print("Would you like to purchase another item? If not, press 4 to finish purchase")
+        print('\n───────────────────────────────────────────────────────────────────────────')
+
         return current_total + item_price
 
     while True:
         print('\n 🌟 Please select a category of item to purchase: ')
+        print()
         print('1 - 🥤 Beverages')
         print('2 - 🍟 Snacks')
         print('3 - 🍫 Sweets')
         print('4 - ✅ Finish purchase')
+        print()
 
         user_choice = input('🌟 Please enter the number of your choice: ')
 
@@ -86,17 +92,17 @@ def vending_machine_simulation(user_balance):
             if selected_item:
                 total_spent = process_payment(selected_item, total_spent)
                 if selected_item['code'] == '001':
-                    print("            🌟 Customers also bought: Lays, Toblerone")
-                    print('\n────────────────────────────────────────────────────────────────────')
+                    print("     🌟 Customers who bought this item also purchased: Lays, Toblerone")
+                    print('\n───────────────────────────────────────────────────────────────────────────')
                 elif selected_item['code'] == '014':
-                    print("            🌟 Customers also bought: Mountain Dew, 'Maltesers")
-                    print('\n────────────────────────────────────────────────────────────────────')
+                    print("     🌟 Customers who bought this item also purchased: Mountain Dew, 'Maltesers")
+                    print('\n───────────────────────────────────────────────────────────────────────────')
                 elif selected_item['code'] == '024':
-                    print("            🌟 Customers also bought: Oman Chips, Sprite")
-                    print('\n────────────────────────────────────────────────────────────────────')
+                    print("     🌟 Customers who bought this item also purchased: Oman Chips, Sprite")
+                    print('\n───────────────────────────────────────────────────────────────────────────')
                 elif selected_item['code'] == '004':
-                    print("            🌟 Customers also bought: Bugles, Milky Bar")
-                    print('\n────────────────────────────────────────────────────────────────────')
+                    print("     🌟 Customers who bought this item also purchased: Bugles, Milky Bar")
+                    print('\n───────────────────────────────────────────────────────────────────────────')
         else:
             print('⚠️ Error: Invalid choice. Please try again.')
 
@@ -106,7 +112,7 @@ def vending_machine_simulation(user_balance):
 def get_user_balance():
     while True:
         try:
-            user_balance = float(input('💵 Please input your payment amount: $'))
+            user_balance = float(input(' 💵 Please input your payment amount: $'))
             if user_balance <= 0:
                 print('⚠️ Error: Amount must be greater than $0.')
             else:
