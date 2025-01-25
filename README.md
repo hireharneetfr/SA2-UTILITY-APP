@@ -9,4 +9,3 @@ A vending machine where users can purchase drinks, snacks, and sweets. It includ
 - Product suggestions
 - Balance check
 - Error handling 
-
